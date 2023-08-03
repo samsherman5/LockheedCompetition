@@ -40,14 +40,14 @@ public class SynapticServer {
 				previousOutput = layers[j].calculate(previousOutput);
 			}
 			double highest = Double.MIN_VALUE;
-			int highestIndex = -1;
+			int highestIndex = 0;
 			for (int j = 0; j < previousOutput.size(); j++) {
 				if(previousOutput.get(j)>highest){
 					highest = previousOutput.get(j);
 					highestIndex = j;
 				}
 			}
-			switch(highestIndex){
+			switch (highestIndex) {
 				case 0:
 					System.out.println("STOP_SIGN");
 					break;
@@ -62,6 +62,9 @@ public class SynapticServer {
 					break;
 				case 4:
 					System.out.println("CROSSWALK");
+					break;
+				default:
+					System.out.println(previousOutput);
 					break;
 			}
 
